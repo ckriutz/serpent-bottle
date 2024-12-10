@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError
 import pyodbc
 
 app = Flask(__name__)
@@ -19,7 +20,14 @@ def get_keyvalut_secret():
         retrieved_secret = client.get_secret("serpent-secret")
         print(retrieved_secret.value)
         return retrieved_secret.value
-    except:
+    except ClientAuthenticationError as auth_error:
+        print(f"Error: {auth_error}")
+        return "Unable to Connect to Key Vault. ☹️"
+    except HttpResponseError as http_error: 
+        print(f"HTTP response error: {http_error}")
+        return "Unable to Connect to Key Vault. ☹️"
+    except Exception as e: 
+        print(f"An unexpected error occurred: {e}")
         return "Unable to Connect to Key Vault. ☹️"
 
 def get_database_rows():
