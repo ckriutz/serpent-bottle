@@ -9,10 +9,12 @@ Set two enviroment varaibles:
 ```
 export KEY_VAULT_NAME=<your-unique-keyvault-name>
 export MANAGED_IDENTITY_ID=<your-managed-id-client-id>
+export CONN_STRING=<your-sql-connection-string>
 ```
 
 The KEY_VAULT_NAME should be the unique name for the key vault.
 The MANAGED_IDENTITY_ID should be the id that has access to the key vault.
+
 
 🤔 If these values are not supplied, the applicaion will still work. The Key Vault is used to demonstration purposes.
 
