@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Document</title>
+    <title>Serpant Bottle 🐍🍾</title>
     <style>
         
     </style>
@@ -13,13 +13,18 @@
     <div class="App">
         <header class="App-header">
             <h1>Serpant Bottle 🐍🍾</h1>
-            <h3>{{ secret }}</h3>
-            <h3>{{ rows }}</h3>
-
+            <div class="container">
+                <div class="column"><div>KeyVault Response</div><div class="items">{{ secret }}</div></div>
+                <div class="column"><div>Database Response</div><div class="items">{{ rows }}</div></div>
+                <div class="column"><div>Blob Storage List</div><div class="items">
+                    {% for blob in blobs %}
+                        <a href="{{ blob.url }}" target="_blank">{{ blob.name }}</a>    
+                    {% endfor %}
+                </div></div>
+            </div>
         </header>
         <footer class="App-footer">
             <p class=""><a href="https://github.com/ckriutz/serpent-bottle"><img src="{{ img }}" width="32px;"></a></p>
         </footer>
     </div>
 </body>
-</html>

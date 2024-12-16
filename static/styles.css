@@ -12,7 +12,7 @@ body {
   }
     
   .App-header {
-    background-color: #d45f8a;
+    background-color: #C98474;
     min-height: 85vh;
     display: flex;
     flex-direction: column;
@@ -58,63 +58,11 @@ body {
    #h1{
     color: green;
    }
-    
-    #container{
-      width: 100%;
-      text-align:center;
-    }
-    
-    .whole{
-      display: inline-block;
-      
-    }
-    
-    
-    
-    .type{
-      width: 300px;
-      border-radius: 5px 5px 0px 0px;
-      background-color: #1aaaf8;
-      height: 62px;
-      border-bottom: 3px solid #1aaaf8;
-    
-    }
-    
-    .type p{
-      font-family:'Open Sans';
-        font-weight: 800;
-      font-size: 29px;
-      text-transform: uppercase;
-      color: white;
-      text-align: center;
-      padding-top: 10px;
-    
-      
-    
-    }
-    
-    .plan{
-      width: 300px;
-      background-color: white;
-    
-      border-radius: 0px 0px 5px 5px;
-        font-family:'Open Sans';
-        font-style:condensed;
-        font-size: 90px;
-        color: white;
-        text-align: center;
-    
-    
-    }
-    .standard{
-      background-color: #1aaaf8;
-      border-bottom: 3px solid #1aaaf8;;
-    }
-    
-    .ultimate{
-      background-color: #00cbca;
-      border-bottom: 3px solid #00cbca;
-    }
+
+   .items {
+    font-size: .75em;
+  }
+  
     
     .header{
       border-bottom: 1px solid #494a5a;
@@ -123,19 +71,9 @@ body {
     
     }
     
-    .votesLabel{
-      font-size: calc(12px + 2vmin);
-      color: black;
-      padding: 0px;
-      margin: 0px;
-    }
-    
-    .buttonX{
-      height:80px;
-    }
   
     .App-footer {
-      background-color: #d45f8a;
+      background-color: #C98474;
       min-height: 15vh;
       color: white;
       display: flex;
@@ -175,4 +113,16 @@ body {
       color:#aaa;
     }
   
-    /* Credit to https://epicbootstrap.com/snippets/footer-basic */
+    .container {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .column {
+      flex: 1;
+      margin: 10px;
+      padding: 20px;
+      background-color: #874C62;
+      border: 1px solid #ccc;
+      text-align: center;
+  }

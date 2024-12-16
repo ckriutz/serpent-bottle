@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serpent-web
+  namespace: serpent
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: serpent-web
+  template:
+    metadata:
+      labels:
+        app: serpent-web
+    spec:
+      containers:
+      - name: serpent-web
+        image: ghcr.io/ckriutz/serpent-bottle:1
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "2"
+          requests:
+            memory: "512Mi"
+            cpu: "1"
+        imagePullPolicy: Always
+        env:
+        - name: MANAGED_IDENTITY_ID
+          valueFrom:
+            configMapKeyRef:
+              name: serpent-config
+              key: MANAGED_IDENTITY_ID
+        - name: KEY_VAULT_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: serpent-config
+              key: KEY_VAULT_NAME
+        - name: CONN_STRING
+          valueFrom:
+            configMapKeyRef:
+              name: serpent-config
+              key: CONN_STRING
+        ports:
+        - containerPort: 5000

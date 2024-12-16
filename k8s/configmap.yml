@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: serpent-config
+  namespace: serpent
+data:
+  MANAGED_IDENTITY_ID: ""
+  KEY_VAULT_NAME: ""
+  CONN_STRING: ""
