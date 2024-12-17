@@ -4,7 +4,7 @@ metadata:
   name: serpent-web
   namespace: serpent
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: serpent-web
@@ -16,13 +16,6 @@ spec:
       containers:
       - name: serpent-web
         image: ghcr.io/ckriutz/serpent-bottle:1
-        resources:
-          limits:
-            memory: "1Gi"
-            cpu: "2"
-          requests:
-            memory: "512Mi"
-            cpu: "1"
         imagePullPolicy: Always
         env:
         - name: MANAGED_IDENTITY_ID
@@ -35,6 +28,11 @@ spec:
             configMapKeyRef:
               name: serpent-config
               key: KEY_VAULT_NAME
+        - name: AZURE_STORAGE_CONNECTION_STRING
+          valueFrom:
+            configMapKeyRef:
+              name: serpent-config
+              key: AZURE_STORAGE_CONNECTION_STRING
         - name: CONN_STRING
           valueFrom:
             configMapKeyRef:
